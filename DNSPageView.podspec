@@ -8,10 +8,11 @@ Pod::Spec.new do |s|
                        DNSPageView is a lightweight, pure-Swift library for pageView.
                        DESC
 
-  s.homepage         = 'https://github.com/Danie1s/DNSPageView'
+  s.homepage         = 'https://github.com/chbo297/DNSPageView'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Daniels' => '176516837@qq.com' }
-  s.source           = { :git => 'https://github.com/Danie1s/DNSPageView.git', :tag => s.version }
+  s.author           = { 'Daniels' => 'chbo07@163.com' }
+
+  s.source           = { :git => 'https://github.com/chbo297/DNSPageView.git', :tag => s.version }
 
   s.ios.deployment_target = '8.0'
 
