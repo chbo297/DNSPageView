@@ -34,7 +34,7 @@ class ViewController1: UIViewController {
         let size = UIScreen.main.bounds.size
 
         // 创建对应的DNSPageView，并设置它的frame
-        let pageView = DNSPageView(frame: CGRect(x: 0, y: 64, width: size.width, height: size.height), style: style, titles: titles, childViewControllers: childViewControllers)
+        let pageView = DNSPageView(frame: CGRect(x: 0, y: 88, width: size.width, height: size.height), style: style, titles: titles, childViewControllers: childViewControllers)
         view.addSubview(pageView)
     }
 
