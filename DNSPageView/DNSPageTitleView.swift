@@ -206,7 +206,7 @@ extension DNSPageTitleView {
         
         guard let titleLabel = titleLabels.last else { return }
         
-        let extw = scrollView.bounds.width - titleLabel.frame.maxX + style.titleMargin
+        let extw = scrollView.bounds.width - titleLabel.frame.maxX + style.titleMargin * 0.5
         
         if extw > 0  {
             let leadings = extw/2.0
