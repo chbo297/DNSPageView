@@ -204,10 +204,23 @@ extension DNSPageTitleView {
             titleLabels.first?.transform = CGAffineTransform(scaleX: style.maximumScaleFactor, y: style.maximumScaleFactor)
         }
         
+        guard let titleLabel = titleLabels.last else { return }
+        
+        let extw = scrollView.bounds.width - titleLabel.frame.maxX + style.titleMargin
+        
+        if extw > 0  {
+            let leadings = extw/2.0
+            for (_, vlu) in titleLabels.enumerated() {
+                var fm = vlu.frame
+                fm.origin.x += leadings
+                vlu.frame = fm
+            }
+        }
+        
         if style.isTitleScrollEnable {
-            guard let titleLabel = titleLabels.last else { return }
             scrollView.contentSize.width = titleLabel.frame.maxX + style.titleMargin * 0.5
         }
+        
     }
     
     private func setupCoverViewLayout() {
@@ -257,7 +270,6 @@ extension DNSPageTitleView {
         adjustLabelPosition(targetLabel)
         
         delegate?.titleView(self, currentIndex: currentIndex)
-        
 
         if style.isScaleEnable {
             UIView.animate(withDuration: 0.25, animations: {
@@ -285,6 +297,8 @@ extension DNSPageTitleView {
     
     private func adjustLabelPosition(_ targetLabel : UILabel) {
         guard style.isTitleScrollEnable else { return }
+        
+        if scrollView.contentSize.width <= scrollView.bounds.width { return }
         
         var offsetX = targetLabel.center.x - bounds.width * 0.5
         
