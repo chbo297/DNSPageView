@@ -209,11 +209,12 @@ extension DNSPageTitleView {
         let extw = scrollView.bounds.width - titleLabel.frame.maxX + style.titleMargin * 0.5
         
         if extw > 0  {
-            let leadings = extw/2.0
+            let singlew = scrollView.bounds.width / CGFloat(titleLabels.count)
+            var curx = CGFloat(0)
             for (_, vlu) in titleLabels.enumerated() {
-                var fm = vlu.frame
-                fm.origin.x += leadings
-                vlu.frame = fm
+                let origfm = vlu.frame
+                vlu.frame = CGRect.init(x: curx, y: origfm.minY, width: singlew, height: origfm.height)
+                curx = vlu.frame.maxX
             }
         }
         
