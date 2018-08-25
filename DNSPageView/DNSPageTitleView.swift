@@ -216,12 +216,15 @@ extension DNSPageTitleView {
                 vlu.frame = CGRect.init(x: curx, y: origfm.minY, width: singlew, height: origfm.height)
                 curx = vlu.frame.maxX
             }
+            
+            if style.isTitleScrollEnable {
+                scrollView.contentSize.width = titleLabel.frame.maxX
+            }
+        } else {
+            if style.isTitleScrollEnable {
+                scrollView.contentSize.width = titleLabel.frame.maxX + style.titleMargin * 0.5
+            }
         }
-        
-        if style.isTitleScrollEnable {
-            scrollView.contentSize.width = titleLabel.frame.maxX + style.titleMargin * 0.5
-        }
-        
     }
     
     private func setupCoverViewLayout() {
